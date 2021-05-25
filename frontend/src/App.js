@@ -10,6 +10,12 @@ class App extends Component {
     displayQuote: false
   };
 
+  componentDidMount() {
+    fetch('http://localhost:3000/random')
+      .then(response => response.json())
+      .then(returnQuote => this.setState({returnQuote}))
+  }
+
   handleSubmit = event => {
     event.preventDefault();
     const formData = new FormData(event.target);
@@ -19,7 +25,7 @@ class App extends Component {
 
   displayComponent = () => {
     return this.state.displayQuote ? (
-      <Quote userQuote={this.state.userQuote} />
+      <Quote returnQuote={this.state.returnQuote} />
     ) : (
       <Form
         handleSubmit={this.handleSubmit}
