@@ -1,36 +1,40 @@
-import React, {Component} from 'react'
-import './App.css';
-import Form from './components/Form'
-import Quote from './components/Quote'
+import React, { Component } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import Quote from "./components/Quote";
 
 class App extends Component {
-
   state = {
     userQuote: "",
-    returnQuote: ""
-  }
+    returnQuote: "",
+    displayQuote: false
+  };
 
-  handleSubmit = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.target)
-    this.setState({userQuote: formData.get('changeInput')})
-  }
+  handleSubmit = event => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    this.setState({ userQuote: formData.get("changeInput") });
+    this.setState({ displayQuote: true });
+  };
 
-  handleChange = (event) => {
-    this.setState({userQuote: event.target.value})
-  }
-
-  render() {
-    return (
-    <div className="App">
-      <Form 
-        handleSubmit={this.handleSubmit} 
+  displayComponent = () => {
+    return this.state.displayQuote ? (
+      <Quote userQuote={this.state.userQuote} />
+    ) : (
+      <Form
+        handleSubmit={this.handleSubmit}
         userQuote={this.state.userQuote}
         handleChange={this.handleChange}
       />
-      <Quote userQuote={this.state.userQuote}/>
-    </div>
-    )
+    );
+  };
+
+  handleChange = event => {
+    this.setState({ userQuote: event.target.value });
+  };
+
+  render() {
+    return <div className="App">{this.displayComponent()}</div>;
   }
-}  
+}
 export default App;
