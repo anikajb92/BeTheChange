@@ -1,16 +1,18 @@
 import React from 'react'
 
-export default function Form() {
+export default function Form(props) {
+    
     return (
         <div>
-            <form className="form">
-                <label for="name">Name
-                    <input type="text" name="name" value=""></input>
-                </label>
-                <br></br>
-                <label for="changeInput">See the change
-                    <input type="text" name="changeInput" value=""></input>
-                </label>
+            <form className="form" onSubmit={props.handleSubmit}>
+                <label htmlFor="changeInput">See the change:</label>
+                <input
+                    type="text" 
+                    name="changeInput" 
+                    value={props.userQuote}
+                    onChange={props.handleChange}
+                />
+                <input type="submit" name="submit" value="Let's go!"></input>
             </form>
         </div>
     )
