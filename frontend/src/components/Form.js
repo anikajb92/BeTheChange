@@ -3,17 +3,17 @@ import React from 'react'
 export default function Form(props) {
     
     return (
-        <div>
             <form className="form" onSubmit={props.handleSubmit}>
-                <label htmlFor="changeInput">See the change:</label>
+                <label htmlFor="changeInput">What is your problem?</label><br></br>
                 <input
                     type="text" 
-                    name="changeInput" 
+                    name="changeInput"
+                    className="text-input"
                     value={props.userQuote}
                     onChange={props.handleChange}
-                />
-                <input type="submit" name="submit" value="Let's go!"></input>
+                    required
+                /><br></br>
+                <input type="submit" className="button" name="submit" value="Make a Change!"></input>
             </form>
-        </div>
     )
 }

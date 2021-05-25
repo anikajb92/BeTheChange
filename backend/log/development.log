@@ -1,0 +1,3813 @@
+Started GET "/quotes" for ::1 at 2021-05-25 14:41:33 -0600
+  [1m[35m (3.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+You have 1 pending migration:
+
+20210525185656_create_quotes.rb
+
+
+):
+  
+activerecord (6.1.3.2) lib/active_record/migration.rb:625:in `check_pending!'
+activerecord (6.1.3.2) lib/active_record/migration.rb:590:in `block (2 levels) in call'
+activesupport (6.1.3.2) lib/active_support/evented_file_update_checker.rb:59:in `execute'
+activerecord (6.1.3.2) lib/active_record/migration.rb:595:in `block in call'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `synchronize'
+activerecord (6.1.3.2) lib/active_record/migration.rb:587:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.1.3.2) lib/active_support/callbacks.rb:98:in `run_callbacks'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.1.3.2) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `block in tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:37:in `tagged'
+activesupport (6.1.3.2) lib/active_support/tagged_logging.rb:99:in `tagged'
+railties (6.1.3.2) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.1.3.2) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/static.rb:24:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.1.3.2) lib/action_dispatch/middleware/host_authorization.rb:98:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.1.3.2) lib/rails/engine.rb:539:in `call'
+puma (5.3.2) lib/puma/configuration.rb:249:in `call'
+puma (5.3.2) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.3.2) lib/puma/thread_pool.rb:338:in `with_force_shutdown'
+puma (5.3.2) lib/puma/request.rb:76:in `handle_request'
+puma (5.3.2) lib/puma/server.rb:438:in `process_client'
+puma (5.3.2) lib/puma/thread_pool.rb:145:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateQuotes (20210525185656)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "quotes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "inspiration" varchar, "author" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20210525185656"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2021-05-25 20:41:45.907663"], ["updated_at", "2021-05-25 20:41:45.907663"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/quotes" for ::1 at 2021-05-25 14:41:50 -0600
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by QuotesController#index as HTML
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/controllers/quotes_controller.rb:5:in `index'
+Completed 200 OK in 3ms (Views: 1.2ms | ActiveRecord: 0.1ms | Allocations: 1099)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.3ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "It doesn't matter how strong your opinions are. If you don't use your power for positive change, you are indeed part of the problem."], ["author", "Coretta Scott King"], ["created_at", "2021-05-25 20:41:55.705820"], ["updated_at", "2021-05-25 20:41:55.705820"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "All great changes are preceded by chaos."], ["author", "Deepak Chopra"], ["created_at", "2021-05-25 20:41:55.717075"], ["updated_at", "2021-05-25 20:41:55.717075"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "We all get scared and want to turn away, but it isn't always strength that makes you stay. Strength is also making the decision to change your destiny."], ["author", "Zoraida Córdova"], ["created_at", "2021-05-25 20:41:55.727439"], ["updated_at", "2021-05-25 20:41:55.727439"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "If you do not change direction, you might end up where you are heading."], ["author", "Lao Tzu"], ["created_at", "2021-05-25 20:41:55.737711"], ["updated_at", "2021-05-25 20:41:55.737711"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "Change will not come if we wait for some other person or some other time. We are the ones we’ve been waiting for. We are the change that we seek."], ["author", "Barack Obama"], ["created_at", "2021-05-25 20:41:55.746086"], ["updated_at", "2021-05-25 20:41:55.746086"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "If you change the way you look at things, the things you look at change."], ["author", "Wayne Dyer"], ["created_at", "2021-05-25 20:41:55.757949"], ["updated_at", "2021-05-25 20:41:55.757949"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "If we don't change, we don't grow. If we don't grow, we aren't really living."], ["author", "Gail Sheehy"], ["created_at", "2021-05-25 20:41:55.765324"], ["updated_at", "2021-05-25 20:41:55.765324"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (3.3ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "I cannot say whether things will get better if we change; what I can say is they must change if they are to get better."], ["author", "Georg C. Lichtenberg"], ["created_at", "2021-05-25 20:41:55.775695"], ["updated_at", "2021-05-25 20:41:55.775695"]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mQuote Create (0.2ms)[0m  [1m[32mINSERT INTO "quotes" ("inspiration", "author", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["inspiration", "If you don't like something, change it. If you can't change it, change your attitude."], ["author", "Maya Angelou"], ["created_at", "2021-05-25 20:41:55.784944"], ["updated_at", "2021-05-25 20:41:55.784944"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/quotes" for ::1 at 2021-05-25 14:41:58 -0600
+Processing by QuotesController#index as HTML
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/controllers/quotes_controller.rb:5:in `index'
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 2.6ms | Allocations: 5153)
+
+
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:30 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:31 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:32 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:33 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:34 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:35 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:36 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:37 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/" for ::1 at 2021-05-25 14:43:38 -0600
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+Processing by Rails::WelcomeController#index as HTML
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+  Rendering /Users/paigekelly/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/paigekelly/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 6.6ms | Allocations: 498)
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+Completed 200 OK in 26ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 7284)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/68c4b5e82bc8cb110189.hot-update.json" for ::1 at 2021-05-25 14:43:38 -0600
+  
+ActionController::RoutingError (No route matches [GET] "/68c4b5e82bc8cb110189.hot-update.json"):
+  
+Started GET "/" for ::1 at 2021-05-25 14:43:48 -0600
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/paigekelly/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/paigekelly/.rvm/gems/ruby-2.6.1/gems/railties-6.1.3.2/lib/rails/templates/rails/welcome/index.html.erb (Duration: 22.0ms | Allocations: 191)
+Completed 200 OK in 27ms (Views: 24.6ms | ActiveRecord: 0.0ms | Allocations: 750)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:44:08 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.9ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 29ms (Views: 6.7ms | ActiveRecord: 1.9ms | Allocations: 722)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:44:46 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 10ms (Views: 2.6ms | ActiveRecord: 1.3ms | Allocations: 719)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:47:13 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 17ms (Views: 7.3ms | ActiveRecord: 1.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:47:17 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 61ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:47:27 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 1.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:47:29 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:48:15 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 1.3ms | ActiveRecord: 1.2ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:49:15 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:49:33 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.6ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.6ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:49:50 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.2ms | ActiveRecord: 0.7ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:50:03 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.9ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 10ms (Views: 2.3ms | ActiveRecord: 1.9ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:50:17 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.4ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:51:21 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (2.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 26ms (Views: 15.7ms | ActiveRecord: 2.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:52:10 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (5.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 16ms (Views: 2.5ms | ActiveRecord: 5.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:52:38 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:53:14 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 1.1ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:53:15 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.7ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:53:15 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:54:22 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 6ms (Views: 1.4ms | ActiveRecord: 0.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:54:39 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:54:46 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 4ms (Views: 0.9ms | ActiveRecord: 0.1ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:54:57 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.1ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:57:00 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (3.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 26ms (Views: 1.5ms | ActiveRecord: 3.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 14:59:06 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 1.2ms | ActiveRecord: 0.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:01:08 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (4.3ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 35ms (Views: 4.4ms | ActiveRecord: 4.3ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:01:12 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.2ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:04:10 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.6ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 14ms (Views: 2.2ms | ActiveRecord: 0.6ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:07:56 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (2.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 17ms (Views: 2.5ms | ActiveRecord: 2.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:09:36 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (7.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 17ms (Views: 2.5ms | ActiveRecord: 7.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:09:55 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.7ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:10:11 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 13ms (Views: 1.1ms | ActiveRecord: 0.7ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:13:44 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 11ms (Views: 1.5ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:14:10 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.7ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:15:06 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:15:29 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.9ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 10ms (Views: 1.6ms | ActiveRecord: 0.9ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:15:48 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:17:24 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 0.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:18:30 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 13ms (Views: 5.0ms | ActiveRecord: 1.5ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:19:03 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:19:26 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.4ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 360ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:23:37 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 1.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:27:05 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (1.0ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 13ms (Views: 1.5ms | ActiveRecord: 1.0ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:29:28 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (2.1ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 16ms (Views: 3.7ms | ActiveRecord: 2.1ms | Allocations: 702)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:39:16 -0600
+Processing by QuotesController#random as */*
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+  [1m[36mQuote Load (0.5ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 79ms (Views: 5.5ms | ActiveRecord: 9.5ms | Allocations: 1192)
+
+
+Started GET "/random" for ::1 at 2021-05-25 15:41:19 -0600
+Processing by QuotesController#random as */*
+  [1m[36mQuote Load (0.8ms)[0m  [1m[34mSELECT "quotes".* FROM "quotes"[0m
+  ↳ app/models/quote.rb:6:in `singleQuote'
+Completed 200 OK in 8ms (Views: 0.9ms | ActiveRecord: 0.8ms | Allocations: 702)
+
+
